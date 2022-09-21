@@ -1,4 +1,3 @@
-import imp
 import os
 import sys
 
@@ -10,10 +9,15 @@ from qgis.core import *
 from qgis.gui import *
 from qgis.utils import *
 
-from .interfaz import Ui_ModuloRaster
+from .interfaz import Ui_MainWindow
 
-class interfaz (QMainWindow):
+class interfaz(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.ui = Ui_ModuloRaster()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.ui.btn4.clicked.connect(self.cerrar)
+
+    def cerrar(self):
+        self.close()
